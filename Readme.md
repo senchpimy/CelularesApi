@@ -21,6 +21,24 @@ Antes de comenzar, asegúrate de tener instalado el siguiente software en tu sis
 *   [Docker Compose](https://docs.docker.com/compose/install/) (generalmente viene incluido con Docker Desktop)
 *   Un cliente de API como [Postman](https://www.postman.com/downloads/), [Insomnia](https://insomnia.rest/download) o `curl` en tu línea de comandos.
 
+
+
+1.  **Levanta los servicios con Docker Compose:**
+    Abre una terminal en la raíz del proyecto y ejecuta el siguiente comando:
+    ```bash
+    docker-compose up --build
+    ```
+    Este comando hará lo siguiente:
+    *   Construirá la imagen de la aplicación Spring Boot (`celulares-api`) usando el `Dockerfile`.
+    *   Descargará la imagen de MySQL 8.
+    *   Levantará dos contenedores: uno para la aplicación y otro para la base de datos.
+    *   Creará una red interna para que ambos contenedores se comuniquen.
+
+2.  **Verificación:**
+    Una vez que el comando termine y veas los logs de Spring Boot indicando que la aplicación se ha iniciado, el entorno estará listo.
+    *   La **API de celulares** estará disponible en `http://localhost:8081`.
+    *   La **base de datos MySQL** estará expuesta en el puerto `3307` de tu máquina local (por si quieres conectarte con un cliente como DBeaver o MySQL Workbench).
+
 ## Guía de la API (Endpoints)
 
 A continuación se muestran los endpoints disponibles y ejemplos de cómo usarlos con `curl`.
